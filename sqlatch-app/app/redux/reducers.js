@@ -1,5 +1,6 @@
 let sqlatch = sqlatch || {};
 
+<<<<<<< HEAD
 (function(sqlatch) { 
    
    let {
@@ -29,6 +30,29 @@ let sqlatch = sqlatch || {};
          default:
             return state;
       }
+=======
+function query(state = {nodes: []}, action)
+{
+   switch(action.type){
+      case ADD_QUERY_NODE:
+         return Object.assign({}, state, {
+            nodes: state.nodes.concat([action.node])
+         });
+      case REMOVE_QUERY_NODE:         
+         return Object.assign({}, state, {
+            nodes: _.filter(_.clone(state.nodes), (e)=>
+               e.id !== action.id
+            )
+         });
+
+         // _.filter(
+         //    _.clone(state.nodes), (e)=>
+         //                e.id !== action.id
+         // )
+
+      default:
+         return state;
+>>>>>>> 39b69bd... añadido componentes React para realizar las primeras pruebas de integración Redux-React. Añadido Bootstrap. Añadido Fontsawesome
    }
 
    sqlatch.redux.reducers = {

@@ -10,27 +10,19 @@ let {
    query
 } = sqlatch.redux.reducers;
 
+ReactDOM.render(
+   React.createElement(sqlatch.react.components.QueryNode),
+   document.getElementById('query-node-wrapper')
+);
+
 let sqlatch_app = Redux.combineReducers({
    query
 });
 
 let store = Redux.createStore(sqlatch_app);
-// console.log(store.getState());
+// estado inicial
+console.log(store.getState());
 
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 );
-
-store.dispatch(add_query_node({
-   id     : 1,
-   keyword: 'SELECT',
-   content: '*'
-}));
-
-store.dispatch(add_query_node({
-   id     : 2,
-   keyword: 'FROM',
-   content: 'DEPTNO'
-}));
-
-store.dispatch(remove_query_node(1));
