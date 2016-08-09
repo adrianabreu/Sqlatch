@@ -1,0 +1,1 @@
+let sqlatch = sqlatch || {react : {}, redux : {}};

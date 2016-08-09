@@ -18,6 +18,12 @@ function query(state = {nodes: []}, action)
                e.id !== action.id
             )
          });
+
+         // _.filter(
+         //    _.clone(state.nodes), (e)=>
+         //                e.id !== action.id
+         // )
+
       default:
          return state;
    }
