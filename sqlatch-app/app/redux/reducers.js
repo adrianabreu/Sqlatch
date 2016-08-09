@@ -1,28 +1,28 @@
 let sqlatch = sqlatch || {};
-let types   = sqlatch.redux.types;
+let {
+   ADD_QUERY_NODE, 
+   REMOVE_QUERY_NODE,
+   VALIDATE_QUERY_CONTENT
+} = sqlatch.redux.types;
 
-function nodes(state = [], action)
+function query(state = {nodes: []}, action)
 {
    switch(action.type){
-      case types.ADD_NODE:
-         return state.concat([action.node]);
-      case types.REMOVE_NODE:
-         return state;
-      default:
-         return state;
-   }
-}
-
-function is_valid(state = false, action)
-{   
-   switch(action.type){
-      case types.VALIDATE_QUERY_CONTENT:         
-         return action.is_valid;
+      case ADD_QUERY_NODE:
+         return Object.assign({}, state, {
+            nodes: state.nodes.concat([action.node])
+         });
+      case REMOVE_QUERY_NODE:         
+         return Object.assign({}, state, {
+            nodes: _.filter(_.clone(state.nodes), (e)=>
+               e.id !== action.id
+            )
+         });
       default:
          return state;
    }
 }
 
 sqlatch.redux.reducers = {
-   nodes, is_valid
+   query
 };
