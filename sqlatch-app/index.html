@@ -8,10 +8,19 @@
    <script type="text/javascript" src="lib/jquery.min.js"></script>
    <script type="text/javascript" src="lib/react.js"></script>
    <script type="text/javascript" src="lib/react-dom.min.js"></script>
-   <!-- <script type="text/javascript" src="lib/less.min.js"></script> -->
+   <script type="text/javascript" src="lib/less.min.js"></script>
    <script type="text/javascript" src="lib/lodash.min.js"></script>
+   
+   <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>   
+   <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="lib/font-awesome/css/font-awesome.min.css">
+   
+   <script type="text/babel"      src="app/launcher.js"></script>
+   
+   <script type="text/babel"      src="app/react/components.jsx"></script>
+
+   <!-- redux core -->
    <script type="text/javascript" src="lib/redux.min.js"></script>
-      
    <script type="text/babel"      src="app/redux/types.js"></script>
    <script type="text/babel"      src="app/redux/creators.js"></script>
    <script type="text/babel"      src="app/redux/reducers.js"></script>
@@ -20,6 +29,17 @@
    <!-- <link rel="stylesheet" type="text/less" href=""> -->
 </head>
 <body>
-   <div id="app-wrapper"></div>
+   <div class="container" id="sqlatch-app">
+     <div class="page-header">
+       <h1>
+         Sqlatch
+          <sup>
+            <i class="fa fa-database" aria-hidden="true"></i>
+            <!-- <i class="fa fa-graduation-cap" aria-hidden="true"></i> -->
+         </sup>
+      </h1>
+     </div>
+     <div id="query-node-wrapper"></div>
+   </div>
 </body>
 </html>

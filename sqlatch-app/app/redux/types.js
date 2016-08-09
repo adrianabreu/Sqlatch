@@ -1,5 +1,4 @@
 let sqlatch   = sqlatch || {};
-sqlatch.redux = sqlatch.redux || {}; 
 
 const ADD_QUERY_NODE         = 'ADD_QUERY_NODE';
 const REMOVE_QUERY_NODE      = 'REMOVE_QUERY_NODE';
