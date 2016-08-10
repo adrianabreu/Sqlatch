@@ -1,1 +1,9 @@
-let sqlatch = sqlatch || {react : {}, redux : {}};
+let sqlatch = {
+   react : {
+      components : {},
+      containers : {}
+   }, 
+   redux : {
+      
+   }
+};

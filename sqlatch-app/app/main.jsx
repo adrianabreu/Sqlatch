@@ -4,23 +4,20 @@ let sqlatch  = sqlatch || {};
 let store    = Redux.createStore(sqlatch.redux.combined_reducers);
 let Provider = ReactRedux.Provider;
 
-console.log(sqlatch);
+let App      = sqlatch.react.components.App;
 
 ReactDOM.render(
    <Provider store={store}>
-      <div> TEST </div>
+      <App/>
    </Provider>,
    document.getElementById('query-node-wrapper')
 );
 
 // estado inicial
 console.log(store.getState());
+
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 );
-// todo ... mover al componente de añadido
-// store.dispatch(add_query_node({
-//    id     : Math.floor(Math.random()*10),
-//    keyword: this.keyword,
-//    content: '*'
-// }));
+
+
