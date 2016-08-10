@@ -6,7 +6,8 @@ let sqlatch = sqlatch || {};
    let {
       ADD_QUERY_NODE, 
       REMOVE_QUERY_NODE, 
-      VALIDATE_QUERY_CONTENT
+      VALIDATE_QUERY_CONTENT,
+      BUILD_QUERY_CONTENT
    } = sqlatch.redux.types;
 
    function add_query_node(node){
@@ -21,8 +22,12 @@ let sqlatch = sqlatch || {};
       return {type : VALIDATE_QUERY_CONTENT, is_valid};
    }
 
+   function build_query_content(){
+      return {type : BUILD_QUERY_CONTENT};
+   }
+
    sqlatch.redux.creators = {
-      add_query_node, remove_query_node, validate_query_content
+      add_query_node, remove_query_node, validate_query_content, build_query_content
    };
    
 })(sqlatch);
