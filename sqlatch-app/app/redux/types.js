@@ -12,4 +12,3 @@ let sqlatch = sqlatch || {};
    };
    
 })(sqlatch);
-
