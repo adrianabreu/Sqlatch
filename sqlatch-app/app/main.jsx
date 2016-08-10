@@ -19,4 +19,3 @@ console.log(store.getState());
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 );
-
