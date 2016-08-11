@@ -3,8 +3,8 @@ let sqlatch = sqlatch || {};
 
 (function(sqlatch) {  
 
-   let add_query_node      = sqlatch.redux.creators.add_query_node; 
-   let build_query_content = sqlatch.redux.creators.build_query_content;
+   let add_query_node      = sqlatch.redux.query.actions.add_query_node; 
+   let build_query_content = sqlatch.redux.query.actions.build_query_content;
 
    let Query_content  = sqlatch.react.components.Query_content;
    let connect        = ReactRedux.connect;
@@ -24,6 +24,7 @@ let sqlatch = sqlatch || {};
                keyword: prompt('INSERT KEYWORD'),
                content: '*'
             }));
+            dispatch(build_query_content());
          },
          build_query_content : () => {
             dispatch(build_query_content());

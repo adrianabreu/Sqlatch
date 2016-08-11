@@ -2,12 +2,12 @@ let sqlatch = sqlatch || {};
 
 (function(sqlatch, Redux) { 
 
-   let {
-      query
-   } = sqlatch.redux.reducers;
+   console.log(Redux);
+   
+   let query_reducer =  sqlatch.redux.query.reducers;
 
    sqlatch.redux.combined_reducers = Redux.combineReducers({
-      query
+      query : query_reducer
    });
 
 })(sqlatch, window.Redux);
