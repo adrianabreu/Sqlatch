@@ -4,6 +4,7 @@ let sqlatch = {
       containers : {}
    }, 
    redux : {
-      
+      queries : {},
+      query : {}
    }
 };
