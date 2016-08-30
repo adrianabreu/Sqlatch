@@ -1,16 +1,11 @@
-let sqlatch = sqlatch || {};
 
-(function(sqlatch) {
+import {Visible_query_content} from '../containers/visible-query-content';
+import React                   from 'react';
 
-   let Query_preview         = sqlatch.react.components.Query_preview;
-   let Visible_query_content = sqlatch.react.containers.Visible_query_content;
+const App = () => (
+  <div>
+     <Visible_query_content/>
+  </div>
+);
 
-   const App = () => (
-      <div>
-         <Visible_query_content/>
-      </div>
-   );
-
-   sqlatch.react.components.App = App;
-
-})(sqlatch);
+export {App};
