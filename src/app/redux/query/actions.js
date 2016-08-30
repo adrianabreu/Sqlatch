@@ -1,37 +1,21 @@
-let sqlatch = sqlatch || {};
+import * as types from './types';
 
-(function(sqlatch) {
+export function add_query(query){
+   return {type : types.ADD_QUERY, query};
+}
 
-   let {
-      ADD_QUERY,
-      ADD_QUERY_NODE, 
-      REMOVE_QUERY_NODE, 
-      VALIDATE_QUERY_CONTENT,
-      BUILD_QUERY_CONTENT
-   } = sqlatch.redux.query.types;
+export function add_query_node(node){
+   return {type: types.ADD_QUERY_NODE, node};
+}
 
-   function add_query(query){
-      return {type : ADD_QUERY, query};
-   }
+export function remove_query_node(id){
+   return {type: types.REMOVE_QUERY_NODE, id}
+}
 
-   function add_query_node(node){
-      return {type: ADD_QUERY_NODE, node};
-   }
+export function validate_query_content(is_valid){
+   return {type : types.VALIDATE_QUERY_CONTENT, is_valid};
+}
 
-   function remove_query_node(id){
-      return {type: REMOVE_QUERY_NODE, id}
-   }
-
-   function validate_query_content(is_valid){
-      return {type : VALIDATE_QUERY_CONTENT, is_valid};
-   }
-
-   function build_query_content(){
-      return {type : BUILD_QUERY_CONTENT};
-   }
-
-   sqlatch.redux.query.actions = {
-      add_query_node, remove_query_node, validate_query_content, build_query_content
-   };
-   
-})(sqlatch);
+export function build_query_content(){
+   return {type : types.BUILD_QUERY_CONTENT};
+}
