@@ -1,13 +1,8 @@
-let sqlatch = sqlatch || {};
+import {combineReducers} from 'redux'
+import {query_reducer} 	 from './query/reducers';
 
-(function(sqlatch, Redux) { 
+let combined_reducers = combineReducers({
+  query : query_reducer
+});
 
-   console.log(Redux);
-   
-   let query_reducer =  sqlatch.redux.query.reducers;
-
-   sqlatch.redux.combined_reducers = Redux.combineReducers({
-      query : query_reducer
-   });
-
-})(sqlatch, window.Redux);
+export {combined_reducers};

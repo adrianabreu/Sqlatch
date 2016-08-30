@@ -1,17 +1,19 @@
-let Redux    = window.Redux;
-let sqlatch  = sqlatch || {};
+// sudo npm install --save redux
+// sudo npm install --save react-redux
+// sudo npm i --save-dev babel-plugin-lodash babel-cli babel-preset-es2015
 
-let store    = Redux.createStore(sqlatch.redux.combined_reducers);
-let Provider = ReactRedux.Provider;
+import * as redux_query_actions from './redux/query/actions';
 
-let App      = sqlatch.react.components.App;
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styles from './index.css';
 
-ReactDOM.render(
-   <Provider store={store}>
-      <App/>
-   </Provider>,
-   document.getElementById('query-node-wrapper')
-);
+import React                  from 'react';
+import { render      }        from 'react-dom';
+import { createStore }        from 'redux';
+import { Provider    }        from 'react-redux'
+import { combined_reducers }  from './redux/combined-reducers';
+
+let store = createStore(combined_reducers);
 
 // estado inicial
 console.log(store.getState());
@@ -20,4 +22,12 @@ let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
 );
 
+// todo, añadir redux-react
+// let App      = sqlatch.react.components.App;
 
+// ReactDOM.render(
+//    <Provider store={store}>
+//       <App/>
+//    </Provider>,
+//    document.getElementById('query-node-wrapper')
+// );
