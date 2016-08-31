@@ -13,8 +13,6 @@ describe('redux query actions', () => {
 			type : ADD_QUERY_NODE,
 			node : node_to_add
 		};
-		expect(add_query_node({
-			id : 998
-		})).toEqual(expected_action);
+		expect(add_query_node(node_to_add)).toEqual(expected_action);
 	});
 });
