@@ -4,6 +4,7 @@
 // sudo npm install --save-dev font-awesome
 // cambiar dependencia "bootstrap": "^3.3.7"
 // font-awesome-css:10 -> src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.6.3') format('embedded-opentype'), url('../fonts/fontawesome-webfont.ttf?v=4.6.3') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.6.3#fontawesomeregular') format('svg');
+// npm install expect --save-dev
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'font-awesome/css/font-awesome.css';
