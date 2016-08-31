@@ -8,6 +8,7 @@
     "start": "webpack-dev-server --progress --profile --colors",
     "lint": "eslint --ext js --ext jsx src || exit 0",
     "test": "mocha --compilers js:babel-register --recursive",
+    "test-ci" : "mocha --compilers js:babel-register --recursive -R xunit test/ > test-reports.xml",
     "test:watch": "npm test -- --watch"
   },
   "repository": {
