@@ -5,6 +5,7 @@ import {add_query_node} from '../src/redux/query/actions';
 
 describe('redux query actions', () => {
 	it('should create an action to add a query node', () => {			
+		// force commit
 		const node_to_add = {
 			id : 999
 		};
