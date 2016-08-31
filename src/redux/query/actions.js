@@ -1,3 +1,7 @@
+// todo... renombrar como action-creators
+// lo que devuelven las funciones son las acciones en sí, 
+// las funciones en si NO son las acciones.
+
 import * as types from './types';
 
 export function add_query(query){
