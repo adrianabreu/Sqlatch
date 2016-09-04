@@ -1,5 +1,5 @@
 
-import * as redux_query_actions  from '../../redux/query/actions';
+import * as redux_query_action  from '../../redux/query/action-creator';
 import { connect }               from 'react-redux';
 import { Query_content }         from '../components/query-content';
 
