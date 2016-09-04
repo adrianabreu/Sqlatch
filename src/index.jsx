@@ -21,11 +21,12 @@ import {App} 				  from './react/components/app';
 let store = createStore(combined_reducers);
 
 // estado inicial
-console.log(store.getState());
+// console.log(store.getState());
 
-let unsubscribe = store.subscribe(() =>
-  console.log(store.getState())
-);
+// enable for debug
+// let unsubscribe = store.subscribe(() =>
+//   console.log(store.getState())
+// );
 
 render(
    <Provider store={store}>

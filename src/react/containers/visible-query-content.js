@@ -5,27 +5,35 @@ import { Query_content }         from '../components/query-content';
 
 const mapStateToProps = (state) => {
    return {
-      content : state.query.content || 'waiting for input...'
+      // content : state.queries_manager.content || 'waiting for input...'
+      // content : state.queries_manager.queries[0].content || 'waiting for input...'      
+      // content : 'test'
+      queries : state.queries_manager.queries
    }
 }
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      add_query_node : () => {
+      add_query : (query_id) => {
+         dispatch(redux_query_action.add_query({
+            id : query_id
+         }));
+      },
+      add_query_node : (query_id) => {
          dispatch(redux_query_action.add_query_node({
-            query_id : 1, 
+            query_id : query_id, 
             node     :{
                   id     : Math.floor(Math.random()*10),
                   // todo ... get from input
                   keyword: prompt('INSERT KEYWORD'),
+                  // keyword : 'TEST',
                   content: '*'
                }
             })
          );
-         dispatch(redux_query_action.build_query_content());
-      },
-      build_query_content : () => {
-         dispatch(redux_query_action.build_query_content());
+         dispatch(redux_query_action.build_query_content({
+            query_id: query_id
+         }));
       }
    }
 }

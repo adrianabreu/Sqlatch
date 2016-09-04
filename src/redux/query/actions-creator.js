@@ -4,18 +4,23 @@
 
 import * as types from './types';
 
-// todo ...
-// export function add_query(query){
-//    return {
-//    	type : types.ADD_QUERY, 
-//    	query
-//    };
-// }
+export function add_query({id, nodes = []}){
+   return {
+	   	type    : types.ADD_QUERY, 
+	   	payload : { 
+            id, 
+            nodes 
+         }
+   };
+}
 
 export function add_query_node({query_id = 0,node = {}}){
    return {
-	   	type: types.ADD_QUERY_NODE, 
-	   	payload : { query_id ,node }
+	   	type    : types.ADD_QUERY_NODE, 
+	   	payload : { 
+            query_id ,
+            node 
+         }
    };
 }
 
@@ -35,8 +40,9 @@ export function add_query_node({query_id = 0,node = {}}){
 //    };
 // }
 
-export function build_query_content(){
+export function build_query_content({query_id = 0}){
    return {
-   	type : types.BUILD_QUERY_CONTENT
+      type    : types.BUILD_QUERY_CONTENT,
+      payload : {query_id}
    };
 }

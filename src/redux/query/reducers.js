@@ -1,17 +1,30 @@
 import * as types from './types';
 import _ from 'lodash';
 
-export function query_reducer(state = {nodes: []}, action)
+export function query_reducer(state = {queries: []}, action)
 {
    switch(action.type)
    {
-      // todo ...
-      // case types.ADD_QUERY:
-      //    return state;
+      case types.ADD_QUERY:
+         return Object.assign({}, state, {
+            queries : state.queries.concat(action.payload)
+         });
          
       case types.ADD_QUERY_NODE:
+
+         // we will search in the copy
+         // todo, variable naming
+         let _queries_1 = _.clone(state.queries);         
+         // search the query by id to add the node
+         _queries_1     = _.map(_queries_1,(q)=>{
+            if(q.id === action.payload.query_id){
+               q.nodes = q.nodes.concat([action.payload.node]);         
+            }
+            return q;
+         });
+
          return Object.assign({}, state, {
-            nodes: state.nodes.concat([action.payload.node])
+            queries: _queries_1
          });
 
       // todo ...   
@@ -23,8 +36,18 @@ export function query_reducer(state = {nodes: []}, action)
       //    });
 
       case types.BUILD_QUERY_CONTENT:
+
+         // todo, variable naming
+         let _queries_2 = _.clone(state.queries);   
+         _queries_2     = _.map(_queries_2,(q)=>{
+            if(q.id === action.payload.query_id){
+               q.content = _.join(_.map(q.nodes, (n) => n.keyword),' ')         
+            }
+            return q;
+         });
+
          return Object.assign({}, state, {
-            content: _.join(_.map(state.nodes, (n) => n.keyword),' ')
+            queries: _queries_2
          });
 
       default:
