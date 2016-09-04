@@ -1,5 +1,5 @@
 
-import * as redux_query_action  from '../../redux/query/action-creator';
+import * as redux_query_action  from '../../redux/query/actions-creator';
 import { connect }               from 'react-redux';
 import { Query_content }         from '../components/query-content';
 
@@ -12,16 +12,20 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
    return {
       add_query_node : () => {
-         dispatch(redux_query_actions.add_query_node({
-            id     : Math.floor(Math.random()*10),
-            // todo ... get from input
-            keyword: prompt('INSERT KEYWORD'),
-            content: '*'
-         }));
-         dispatch(redux_query_actions.build_query_content());
+         dispatch(redux_query_action.add_query_node({
+            query_id : 1, 
+            node     :{
+                  id     : Math.floor(Math.random()*10),
+                  // todo ... get from input
+                  keyword: prompt('INSERT KEYWORD'),
+                  content: '*'
+               }
+            })
+         );
+         dispatch(redux_query_action.build_query_content());
       },
       build_query_content : () => {
-         dispatch(redux_query_actions.build_query_content());
+         dispatch(redux_query_action.build_query_content());
       }
    }
 }
