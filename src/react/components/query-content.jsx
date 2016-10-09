@@ -25,14 +25,59 @@ class Query_content extends React.Component{
               return (
                 <div key={query.id}>                  
                   <div className="panel-body">
-                    id: {query.id}, content: <code>{query.content}</code>
+                    <table className="table table-stripped table-hover">
+                      <thead>
+                           <tr>
+                             <th className="col-sm-2"><b>QUERY INFO</b></th>
+                             <th className="col-sm-10">&nbsp;</th>
+                           </tr>
+                         </thead>
+                      <tbody>
+                        <tr>
+                          <td>id</td>
+                          <td>
+                              <code>{query.id}</code>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>content</td>
+                          <td>
+                              { query.content
+                                 ? <code>{query.content}</code>
+                                 : ''
+                              }
+                          </td>
+                        </tr>                    
+                        <tr>
+                          <td>data</td>
+                          <td>
+                              { query.parsed_data
+                                ? <code>{query.parsed_data}</code>
+                                : ''
+                              }
+                          </td>
+                        </tr>                    
+                      </tbody>
+                    </table>
                   </div>
                   <div className="panel-footer">
-                    <button type="button" 
-                         className="btn btn-default"
-                         onClick={e => {this.props.add_query_node(query.id)}}>
-                      add-query-node
-                    </button>
+                    <div className="btn-group">
+                      <button type="button" 
+                           className="btn btn-default"
+                           onClick={e => {this.props.add_query_node(query.id)}}>
+                        add-query-node
+                      </button>
+                      <button type="button" 
+                           disabled={query.fetching || !query.content}
+                           className={"btn "+ (query.fetching ? "btn-info disabled" : !query.content ? "btn-default disabled" : "btn-default")}   
+                           onClick={e => {this.props.fetch_query_data(query.id,query.content)}}>
+                        {
+                          query.fetching 
+                          ? 'fetching...'
+                          : 'fetch-query-data' 
+                        }
+                      </button>
+                    </div>
                   </div>
                 </div>
               )

@@ -10,22 +10,35 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'font-awesome/css/font-awesome.css';
 // import styles from './index.css';
 
-import React                  from 'react';
-import { render }		      from 'react-dom';
-import { createStore }        from 'redux';
-import { Provider }        	  from 'react-redux'
+import React                  			from 'react';
+import { render }		      			from 'react-dom';
+import { createStore,applyMiddleware }  from 'redux';
+import { Provider }        	  			from 'react-redux'
+import thunkMiddleware 		  			from 'redux-thunk';
+import createLogger 		  			from 'redux-logger';
 
-import { combined_reducers }  from './redux/combined-reducers';
-import {App} 				  from './react/components/app';
 
-let store = createStore(combined_reducers);
+import { combined_reducers }  			from './redux/combined-reducers';
+import {App} 				  			from './react/components/app';
+
+const loggerMiddleware = createLogger({
+	collapsed : true
+});
+
+let store = createStore(
+	combined_reducers,
+	applyMiddleware(
+		thunkMiddleware,
+		loggerMiddleware
+	)
+);
 
 // estado inicial
 // console.log(store.getState());
 
 // enable for debug
 // let unsubscribe = store.subscribe(() =>
-//   console.log(store.getState())
+  // console.log(store.getState())
 // );
 
 render(

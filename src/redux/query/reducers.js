@@ -50,6 +50,36 @@ export function query_reducer(state = {queries: []}, action)
             queries: _queries_2
          });
 
+      case types.SET_QUERY_FETCHING:
+
+         let _queries_3 = _.clone(state.queries);   
+         let query_to_set_fetching = _.map(_queries_3,(q)=>{
+            if(q.id === action.payload.query_id){
+               q.fetching = action.payload.fetching;                        
+            }
+            return q;
+         });
+
+         return Object.assign({}, state, {
+            queries: _queries_3
+         });
+
+      case types.SET_QUERY_DATA:
+
+         let _queries_4 = _.clone(state.queries);   
+         let query_to_set_data = _.map(_queries_4,(q)=>{
+            if(q.id === action.payload.query_id){
+               q.data = action.payload.query_data;   
+               // temporal, just for showing result
+               q.parsed_data = JSON.stringify(q.data);
+            }
+            return q;
+         });
+
+         return Object.assign({}, state, {
+            queries: _queries_4
+         });         
+
       default:
          return state;
    }

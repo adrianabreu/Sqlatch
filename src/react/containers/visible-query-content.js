@@ -34,6 +34,9 @@ const mapDispatchToProps = (dispatch) => {
          dispatch(redux_query_action.build_query_content({
             query_id: query_id
          }));
+      },
+      fetch_query_data: (query_id, query_content) =>{
+         dispatch(redux_query_action.fetch_query_data({query_id, query_content}));
       }
    }
 }
